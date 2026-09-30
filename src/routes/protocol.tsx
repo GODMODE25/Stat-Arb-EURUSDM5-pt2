@@ -71,13 +71,30 @@ function Protocol() {
       </Card>
 
       <Card>
+        <CardHeader title="Phase 2 diagnostics" kicker="Strategy-independent, recorded hypotheses" />
+        <ul className="list-disc space-y-1 pl-4 text-sm text-muted">
+          <li>Same frozen splits. Holdout never used to select a condition, threshold, or family.</li>
+          <li>Signed tradable pips = −sign(Z_t) × (Close[t+h] − Open[t+1]) / pip. Signal on closed bar t.</li>
+          <li>Horizons 1, 2, 3, 6, 12, 24, 48 bars. Primary economic windows 6 and 12 (30–60 minutes).</li>
+          <li>HAC t-stats with lags = horizon because forward returns overlap. BH-FDR 10% on IS.</li>
+          <li>Promotion: FDR + IS net {">"} 0 after 2.5 pips + validation same sign + yearly breadth.</li>
+          <li>179 recorded comparisons. 0 promoted. 111 statistically interesting and below cost.</li>
+          <li>VWAP skipped: HistData volume is zero. Do not invent a volume series.</li>
+        </ul>
+        <p className="mt-4 text-sm text-fg">
+          Phase 2 is not an optimizer. It is the test of whether a genuine conditional M5 mean-reversion
+          edge exists at all. It does not, under these costs.
+        </p>
+      </Card>
+
+      <Card>
         <CardHeader title="If you still want to iterate" />
         <p className="text-sm leading-relaxed text-muted">
-          The study rejects <em>this</em> Z-score / 1:2 / M5 / EURUSD specification after realistic costs.
-          It does not prove that every mean-reversion idea is dead. If you continue, change one thing at a
-          time: a reachable take-profit (mean-reversion targets should be a fraction of an ATR, not 6×ATR),
-          a cost-aware stop floor, or a different residual. Then rerun the same gates. Do not add indicators
-          until a baseline without them has positive OOS expectancy.
+          Do not spend another cycle retuning M5 1:2 Z-score stops, lookbacks, or overlay filters. Phase 2
+          already asked whether any economically sensible condition rescues the residual. None cleared
+          the cost hurdle. If you continue, change the question: raw hour-of-day seasonality as its own
+          family, range-break continuation on M15–H1 where 2.5 pips is a smaller fraction of the move, or
+          a cross-asset residual if a second series can be aligned without lookahead.
         </p>
       </Card>
     </div>

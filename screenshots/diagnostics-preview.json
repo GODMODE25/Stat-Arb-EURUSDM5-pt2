@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/diagnostics",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "STATREV",
+      "hasCanvas": false,
+      "bodyTextLen": 17118,
+      "bodyTextHash": "f52ceb5d511f9caab75eaaf2350fe554653f152f65fe4db049367376d9b4215e",
+      "bodyTextPrefix": "Skip to content STATREV EURUSD M5 mean-reversion desk NOT VALIDA",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/diagnostics-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "STATREV",
+      "hasCanvas": false,
+      "bodyTextLen": 17118,
+      "bodyTextHash": "f52ceb5d511f9caab75eaaf2350fe554653f152f65fe4db049367376d9b4215e",
+      "bodyTextPrefix": "Skip to content STATREV EURUSD M5 mean-reversion desk NOT VALIDA",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/diagnostics-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/diagnostics-preview.json"
+}

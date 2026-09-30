@@ -5,8 +5,8 @@ import { Card, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { research } from "@/lib/research";
-import { int, num, pct, rUnit } from "@/lib/utils";
-import { cn } from "@/lib/utils";
+import { cn, int, num, pct, rUnit } from "@/lib/utils";
+import { diagnostics } from "@/lib/diagnostics";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -37,11 +37,29 @@ function Home() {
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           <Badge tone="bad">{m.verdict.replaceAll("_", " ")}</Badge>
+          <Badge tone="bad">{diagnostics.meta.verdict.replaceAll("_", " ")}</Badge>
           <Badge>EURUSD M5</Badge>
           <Badge>{int(research.data.m5_bars)} M5 bars</Badge>
           <Badge>2016–2026</Badge>
         </div>
       </header>
+
+      <Card>
+        <CardHeader kicker="Phase 2" title="No tradable conditional edge either." />
+        <p className="text-sm leading-relaxed text-muted sm:text-base">
+          {diagnostics.meta.n_hypotheses} pre-registered comparisons (sessions, vol, trend, hours,
+          weekdays, streaks, seven interactions). BH-FDR 10% flags {diagnostics.meta.n_fdr_is} IS tests.
+          Promotion additionally required net{" "}
+          {">"} 0 after 2.5 pips, validation agreement, and yearly breadth. Promoted: {diagnostics.counts.promising}.
+          Lag-1 ACF is {diagnostics.market.return_acf[0].acf_is.toFixed(3)} — a real, tiny reversion that
+          costs bury. Holdout was not used to select.
+        </p>
+        <div className="mt-4">
+          <Link to="/diagnostics" className={cn(buttonVariants({ variant: "secondary" }))}>
+            Open Phase 2 diagnostics
+          </Link>
+        </div>
+      </Card>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <Card>

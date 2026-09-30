@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Card, CardHeader } from "@/components/ui/card";
 import { formulas, research } from "@/lib/research";
+import { diagnostics } from "@/lib/diagnostics";
 
 export const Route = createFileRoute("/plan")({ component: Plan });
 
@@ -106,6 +107,20 @@ function Plan() {
         </ul>
         <p className="mt-4 text-sm text-fg">
           The study did not clear those gates. The EA is still published so the test can be reproduced.
+        </p>
+      </Card>
+
+      <Card>
+        <CardHeader title="Phase 2 — do not retune the failed 1:2 spec" kicker="Conditional diagnostics, same frozen splits" />
+        <p className="text-sm leading-relaxed text-muted sm:text-base">
+          After Phase 1, the next question was whether EURUSD M5 has any condition-dependent mean-reversion
+          effect large enough to survive 2.5 pips of friction. Lookback 100, signed tradable pips, BH-FDR
+          10%, promotion requiring IS net {">"} 0, validation same sign, and yearly breadth. Holdout stayed
+          locked. {diagnostics.meta.n_hypotheses} pre-registered comparisons. Promoted: {diagnostics.counts.promising}.
+        </p>
+        <p className="mt-3 text-sm text-fg">
+          Verdict: {diagnostics.meta.verdict.replaceAll("_", " ")}. A negative result is a completed study,
+          not a cue to search harder inside the same specification.
         </p>
       </Card>
     </div>

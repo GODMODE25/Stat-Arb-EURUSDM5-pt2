@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BaselineRouteImport } from './routes/baseline'
 import { Route as CandidateRouteImport } from './routes/candidate'
 import { Route as DataRouteImport } from './routes/data'
+import { Route as DiagnosticsRouteImport } from './routes/diagnostics'
 import { Route as EaRouteImport } from './routes/ea'
 import { Route as FiltersRouteImport } from './routes/filters'
 import { Route as PlanRouteImport } from './routes/plan'
@@ -36,6 +37,11 @@ const CandidateRoute = CandidateRouteImport.update({
 const DataRoute = DataRouteImport.update({
   id: '/data',
   path: '/data',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagnosticsRoute = DiagnosticsRouteImport.update({
+  id: '/diagnostics',
+  path: '/diagnostics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EaRoute = EaRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/baseline': typeof BaselineRoute
   '/candidate': typeof CandidateRoute
   '/data': typeof DataRoute
+  '/diagnostics': typeof DiagnosticsRoute
   '/ea': typeof EaRoute
   '/filters': typeof FiltersRoute
   '/plan': typeof PlanRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/baseline': typeof BaselineRoute
   '/candidate': typeof CandidateRoute
   '/data': typeof DataRoute
+  '/diagnostics': typeof DiagnosticsRoute
   '/ea': typeof EaRoute
   '/filters': typeof FiltersRoute
   '/plan': typeof PlanRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/baseline': typeof BaselineRoute
   '/candidate': typeof CandidateRoute
   '/data': typeof DataRoute
+  '/diagnostics': typeof DiagnosticsRoute
   '/ea': typeof EaRoute
   '/filters': typeof FiltersRoute
   '/plan': typeof PlanRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/baseline'
     | '/candidate'
     | '/data'
+    | '/diagnostics'
     | '/ea'
     | '/filters'
     | '/plan'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/baseline'
     | '/candidate'
     | '/data'
+    | '/diagnostics'
     | '/ea'
     | '/filters'
     | '/plan'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/baseline'
     | '/candidate'
     | '/data'
+    | '/diagnostics'
     | '/ea'
     | '/filters'
     | '/plan'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   BaselineRoute: typeof BaselineRoute
   CandidateRoute: typeof CandidateRoute
   DataRoute: typeof DataRoute
+  DiagnosticsRoute: typeof DiagnosticsRoute
   EaRoute: typeof EaRoute
   FiltersRoute: typeof FiltersRoute
   PlanRoute: typeof PlanRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/data'
       fullPath: '/data'
       preLoaderRoute: typeof DataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnostics': {
+      id: '/diagnostics'
+      path: '/diagnostics'
+      fullPath: '/diagnostics'
+      preLoaderRoute: typeof DiagnosticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ea': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   BaselineRoute: BaselineRoute,
   CandidateRoute: CandidateRoute,
   DataRoute: DataRoute,
+  DiagnosticsRoute: DiagnosticsRoute,
   EaRoute: EaRoute,
   FiltersRoute: FiltersRoute,
   PlanRoute: PlanRoute,

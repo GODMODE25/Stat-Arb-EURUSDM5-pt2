@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "STATREV",
+      "hasCanvas": false,
+      "bodyTextLen": 3430,
+      "bodyTextHash": "211507fa534d1c66fb25b9a0f8689329b9c5cdd6297ee23f9c3de7f0f3093f43",
+      "bodyTextPrefix": "Skip to content STATREV EURUSD M5 mean-reversion desk NOT VALIDA",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "STATREV",
+      "hasCanvas": false,
+      "bodyTextLen": 3430,
+      "bodyTextHash": "211507fa534d1c66fb25b9a0f8689329b9c5cdd6297ee23f9c3de7f0f3093f43",
+      "bodyTextPrefix": "Skip to content STATREV EURUSD M5 mean-reversion desk NOT VALIDA",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
